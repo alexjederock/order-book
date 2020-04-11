@@ -24,10 +24,13 @@ function handleOrder (book, incomingOrder, index)
   } else
   {
     book[ index ].quantity -= incomingOrder.quantity
+    let tempOrder = book.splice(index, 1)
+    book.push(tempOrder[0])
 
     return book
   }
 }
+
 
 
 function reconcileOrder (book, order)
@@ -41,7 +44,7 @@ function reconcileOrder (book, order)
   }
   book.push(order)
 
-  return order
+  return book
 
 }
 
